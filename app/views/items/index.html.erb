@@ -7,7 +7,11 @@
   <%= form.submit "Add" %>
 <% end %>
 
-
+<%# destroy all buttom %>
+<%= link_to "Delete all",
+                   items_destroy_path,
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete all items in the list?"}
+       %>
 <%# list of item %>
 <ul>
   <% @items.each do |item| %>
@@ -15,7 +19,7 @@
       <strong><%= item.name %></strong>
       <%= link_to "Delete",
                   item_path(item),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{item.name}?"}
        %>
     </li>
   <% end %>

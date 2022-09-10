@@ -15,7 +15,15 @@ class ItemsController < ApplicationController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path
+    redirect_to items_path, status: :see_other
+  end
+
+  def destroy_all
+    @items = Item.where(user_id: current_user)
+    @items.each do |item|
+      item.destroy    
+    end
+    redirect_to items_path, status: :see_other
   end
 
   private
