@@ -4,5 +4,18 @@ class ItemsController < ApplicationController
     @item = Item.new
   end
 
+  def create
+    @item = Item.new(item_params)
+    @item.user = current_user
+    @item.save
+    redirect_to items_path
+    
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name)
+  end
 
 end

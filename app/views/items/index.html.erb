@@ -1,9 +1,9 @@
 <h1>your list</h1>
 
 <%# create new item to add to the list %>
-<%= form_with url: @item, method: :get do |form| %>
+<%= form_with(model:@item) do |form| %>
   <%= form.label :name, "Item name:" %>
-  <%= form.text_field :name %>
+  <%= form.text_field :name, required: true %>
   <%= form.submit "Add" %>
 <% end %>
 
