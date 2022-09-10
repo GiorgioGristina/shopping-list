@@ -9,8 +9,14 @@
 
 
 <%# list of item %>
-
-<% @items.each do |item| %>
-  <p><%= item.name %></p>
-<% end %>
-
+<ul>
+  <% @items.each do |item| %>
+    <li>
+      <strong><%= item.name %></strong>
+      <%= link_to "Delete",
+                  item_path(item),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+       %>
+    </li>
+  <% end %>
+</ul>
