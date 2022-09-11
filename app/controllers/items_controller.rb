@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
+  before_action :set_items, only: [:destroy_all, :index]
+
   def index
-    @items = Item.where(user_id: current_user)
     @item = Item.new
   end
-
 
   def create
     @item = Item.new(item_params)
@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy_all
-    @items = Item.where(user_id: current_user)
     @items.each do |item|
       item.destroy    
     end
@@ -30,6 +29,10 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name)
+  end
+
+  def set_items
+    @items = Item.where(user_id: current_user)
   end
 
 end
