@@ -1,0 +1,9 @@
+@import "card.css";
+@import "button.css";
+@import "form.css";
+
+
+.container{
+  width: 80%;
+  margin: 20px auto;
+}

@@ -1,0 +1,16 @@
+.card{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+  margin: 16px auto;  
+  border: 1px black solid;
+  border-radius: 10px;
+  padding: 8px 12px;
+  background-color: green;
+  color: white;
+}
+
+.item-name{
+  flex-grow: 3;
+  font-size: larger;
+}

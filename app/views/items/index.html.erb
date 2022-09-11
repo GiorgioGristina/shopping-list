@@ -1,26 +1,36 @@
-<h1>your list</h1>
 
-<%# create new item to add to the list %>
-<%= form_with(model:@item) do |form| %>
-  <%= form.label :name, "Item name:" %>
-  <%= form.text_field :name, required: true %>
-  <%= form.submit "Add" %>
-<% end %>
 
-<%# destroy all buttom %>
-<%= link_to "Delete all",
-                   items_destroy_path,
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete all items in the list?"}
-       %>
-<%# list of item %>
-<ul>
-  <% @items.each do |item| %>
-    <li>
-      <strong><%= item.name %></strong>
-      <%= link_to "Delete",
-                  item_path(item),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{item.name}?"}
-       %>
-    </li>
+<div class="container">
+  <%# create new item to add to the list %>
+
+  <%= form_with(model:@item, html: {class: "form-item"}) do |form| %>
+    <%= form.label :name, "Item name:", class: "label" %>
+    <%= form.text_field :name, required: true, class: "input" %>
+    <%= form.submit "Add", class: "btn call-to-action"  %>
   <% end %>
-</ul>
+
+  <%# destroy all buttom %>
+  <% if @items.length > 0 %>
+    <div class="center">
+      <%= link_to "Delete all",
+                        items_destroy_path,
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete all items in the list?"},
+                        class: "btn no-decoration delete "
+            %>
+    </div>
+  <% end %>
+  <%# list of item %>
+
+  <% @items.each do |item| %>
+    <div class="card">
+      <strong class="item-name"><%= item.name %></strong>
+      <%= link_to "X",
+                  item_path(item),
+                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{item.name}?"},
+                  class: "btn-round no-decoration delete"
+      %>
+    </div>
+  <% end %>
+  
+
+</div>
