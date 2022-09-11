@@ -1,24 +1,61 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Shopping list
+A shopping list web app using Ruby on Rails.
 
-Things you may want to cover:
+With this app a user can:
+- Add items to the shopping list;
+- View the shopping list;
+- Delete an individual item from the shopping list;
+- Delete their entire shopping list, with a single button click;
+- Each user can login with their Google account and their shopping list must persist between their logins;
 
-* Ruby version
+## Installation
+ 
+ Clone the project:
 
-* System dependencies
+ ```
+ git clone https://github.com/GiorgioGristina/shopping-list.git 
+ cd shopping-list
+ ```
 
-* Configuration
+ Make sure you are using ruby v2.7.3, check it, using this command:
 
-* Database creation
+ ```
+ ruby -v
+ ```
 
-* Database initialization
+ Run this command to install gems:
 
-* How to run the test suite
+ ```
+ bundle install
+ ```
 
-* Services (job queues, cache servers, search engines, etc.)
+ Run this command to install all dependencies:
 
-* Deployment instructions
+ ```
+ yarn install
+ ```
 
-* ...
+ Run these commands to create data base, migrate the schema's table: 
+
+ ```
+ rails db:create db:migrate 
+ ```
+
+ Run the server:
+
+ ```
+ rails s
+ ```
+
+ Open your favourite browser and go to: http://localhost:3000
+
+ ## Thank You
+
+ I would like to take this opportunity to thank you for including me in this process. It has been a great pleasure attempting this challenge. I'm looking forward to elaborating on my execution and getting your insight about what I can improve on. Many thanks!
+
+
+
+
+
